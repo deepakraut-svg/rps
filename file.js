@@ -1,7 +1,7 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function playGame() {
+  let humanScore = 0;
+  let computerScore = 0;
+
   let playRound = () => {
     let getComputerChoice = () => {
       return ["rock", "paper", "scissors"][Math.floor(Math.random() * 3)];
@@ -14,13 +14,64 @@ function playGame() {
     let humanChoice = getHumanChoice().toLowerCase();
     console.log(`Your choice is ${humanChoice}`);
     console.log(`Computers choice is ${computerChoice}`);
+
+    if (humanChoice === "rock") {
+      if (computerChoice === "scissors") {
+        console.log("You Win! rock crushes scissors!");
+        return "Human";
+      } else if (computerChoice === "paper") {
+        console.log("You Lose! paper covers rock!");
+        return "Computer";
+      } else {
+        console.log("Its a tie!");
+        return "Tie";
+      }
+    } else if (humanChoice === "scissors") {
+      if (computerChoice === "rock") {
+        console.log("You Lose! rock crushes scissors!");
+        return "Computer";
+      } else if (computerChoice === "paper") {
+        console.log("You Win! scissors cut paper!");
+        return "Human";
+      } else {
+        console.log("Its a tie!");
+        return "Tie";
+      }
+    } else {
+      if (computerChoice === "rock") {
+        console.log("You Win! paper covers rock!");
+        return "Human";
+      } else if (computerChoice === "scissors") {
+        console.log("You Lose! scissors cut paper!");
+        return "Computer";
+      } else {
+        console.log("Its a tie!");
+        return "Tie";
+      }
+    }
   };
 
   for (let i = 0; i <= 4; i++) {
-    playRound();
+    let result = playRound();
+    if (result === "Human") {
+      humanScore += 1;
+    } else if (result === "Computer") {
+      computerScore += 1;
+    } else {
+      humanScore = humanScore;
+      computerScore = computerScore;
+    }
   }
 
-  return 0;
+  if (humanScore > computerScore) {
+    console.log(
+      `Congrats you won! Your score at end of 5 rounds is ${humanScore} and computers score is ${computerScore}!`
+    );
+  } else if (computerScore > humanScore) {
+    console.log(
+      `Sorry you lost on! Your score at end of 5 rounds is ${humanScore} and computers score is ${computerScore}!`
+    );
+  }
 }
 
 playGame();
