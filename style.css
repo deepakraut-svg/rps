@@ -1,0 +1,25 @@
+* {
+  background-color: lightseagreen;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  flex-direction: row;
+  text-align: left;
+  font-size: 30px;
+  margin: 20px;
+  padding: 30px;
+}
+
+button {
+  margin-top: 30px;
+  font-size: 30px;
+  padding: 10px;
+  width: 200px;
+}
+
+.result {
+  margin-left: 200px;
+}
