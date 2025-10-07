@@ -1,13 +1,13 @@
 * {
-  background-color: lightseagreen;
+  background-color: whitesmoke;
   margin: 0;
   padding: 0;
 }
 
 body {
   display: flex;
-  flex-direction: row;
-  text-align: left;
+  flex-direction: column;
+  text-align: center;
   font-size: 30px;
   margin: 20px;
   padding: 30px;
@@ -18,8 +18,23 @@ button {
   font-size: 30px;
   padding: 10px;
   width: 200px;
+  margin-bottom: 30px;
 }
 
-.result {
+button:hover {
+  background-color: lightslategray;
+  color: white;
+  transition: background-color 0.3s;
+  cursor: progress;
+}
+
+#result,
+#human,
+#computer {
+  display: flex;
+  flex-direction: column;
   margin-left: 200px;
+  margin-top: 10px;
+  border-style: groove;
+  align-self: center;
 }

@@ -1,9 +1,15 @@
-const display = document.querySelector(".result");
-const rockButton = document.getElementById("rock");
-const paperButton = document.getElementById("paper");
-const scissorsButton = document.getElementById("scissors");
+const display = document.querySelector("#result");
+const hscore = document.querySelector("#human");
+const cscore = document.querySelector("#computer");
+const rockButton = document.querySelector("#rock");
+const paperButton = document.querySelector("#paper");
+const scissorsButton = document.querySelector("#scissors");
+
 let humanScore = 0;
 let computerScore = 0;
+
+//hscore.textContent = `Human score ${humanScore}!!`;
+//cscore.textContent = `Computer score ${computerScore}!!`;
 
 function playGame(buttontext) {
   let playRound = () => {
@@ -62,12 +68,15 @@ function playGame(buttontext) {
     computerScore = computerScore;
   }
 
+  hscore.textContent = `Human score ${humanScore}`;
+  cscore.textContent = `Machine's score ${computerScore}!!`;
+
   if (humanScore >= 5) {
-    display.textContent = `Congrats you won! Your score at end of 5 rounds is ${humanScore} and computers score is ${computerScore}!`;
+    display.textContent = `Congrats you won! Your score is ${humanScore} and  machine's score is ${computerScore}! Make a choice again to start new game!!`;
     humanScore = 0;
     computerScore = 0;
   } else if (computerScore >= 5) {
-    display.textContent = `Sorry you lost on! Your score at end of 5 rounds is ${humanScore} and computers score is ${computerScore}!`;
+    display.textContent = `Sorry you lost on! Your score is ${humanScore} and machine's score is ${computerScore}! Make a choice again to start new game!!`;
     humanScore = 0;
     computerScore = 0;
   } else {
@@ -75,9 +84,9 @@ function playGame(buttontext) {
   }
 }
 
-rockButton.setAttribute("style", "background-color:cyan;");
-paperButton.setAttribute("style", "background-color:yellow;");
-scissorsButton.setAttribute("style", "background-color:pink;");
+//rockButton.setAttribute("style", "background-color:cyan;");
+//paperButton.setAttribute("style", "background-color:yellow;");
+//scissorsButton.setAttribute("style", "background-color:pink;");
 
 rockButton.addEventListener("click", (event) => {
   let result = playGame("rock");
